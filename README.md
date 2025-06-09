@@ -34,7 +34,7 @@ This project implements a Reinforcement Learning (RL) approach for optimizing st
 ## Installation
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+[git clone <repository-url>](https://github.com/ommishra03/AI-Driven-Portfolio-Optimization-Using-Reinforcement-Learning)
 ```
 2. Install dependencies:
 ```bash
