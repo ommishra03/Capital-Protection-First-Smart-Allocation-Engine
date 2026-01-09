@@ -1,104 +1,154 @@
-# 🤖 AI-Driven Portfolio Optimization Using Reinforcement Learning
+# AI-Driven Portfolio Optimization Using Reinforcement Learning
 
-A data-driven financial portfolio optimizer powered by Reinforcement Learning (RL) agents like PPO, DDPG, and A2C. This project uses historical financial metrics and engineered indicators to simulate a trading environment, train intelligent agents, and provide actionable investment advice with ratings and suggestions for portfolio improvement.
+> A production-style portfolio optimization framework leveraging Reinforcement Learning (RL) to learn optimal asset allocation strategies under risk–return constraints.
 
----
-
-## 📌 Features
-
-- 📊 **Financial Data Preprocessing** using revenue, volatility, Sharpe ratio & momentum
-- 🧠 **Custom Gym Environment** simulating multi-asset investment decisions
-- ⚙️ **RL Algorithms**: PPO, DDPG, and A2C from Stable-Baselines3
-- 📈 **Performance Evaluation** across multiple episodes and agents
-- 🎯 **Personalized Portfolio Advisor**: Compares user allocations to RL-suggested allocations with similarity scoring
-- 📉 **Visualizations**: Plotting performance and reward curves
+This project simulates how **modern fintech and quantitative investment teams** explore reinforcement learning to support **portfolio allocation, rebalancing, and decision optimization**.  
+It integrates financial feature engineering, a custom trading environment, and multiple RL agents to evaluate allocation strategies over time.
 
 ---
 
-## 🚀 Technologies Used
+## 🎯 Objective
 
-| Category        | Tools & Libraries                             |
-|-----------------|------------------------------------------------|
-| RL Algorithms   | PPO, DDPG, A2C (`stable-baselines3`)           |
-| Environment     | `OpenAI Gym`, Custom PortfolioEnv              |
-| Data Processing | `pandas`, `numpy`, `sklearn`, `matplotlib`     |
-| Optimization    | Momentum, Moving Averages, Sharpe Ratio        |
-| Deployment      | Google Colab (Notebook format)                 |
+The objective of this project is to **optimize multi-asset portfolio allocations** by learning policies that balance:
+- Expected returns  
+- Risk exposure  
+- Portfolio stability  
 
----
-
-## 🔧 Installation
-
-1. **Clone the repository**
-    ```bash
-       git clone https://github.com/ommishra03/AI-Driven-Portfolio-Optimization-Using-Reinforcement-Learning.git
-       cd AI-Driven-Portfolio-Optimization-Using-Reinforcement-Learning
-    ```
-   
-    Install dependencies
-    
-        pip install stable-baselines3
-        pip install "shimmy>=2.0"
-
-Prepare the dataset
-        
-    Add your Portfolio_management.csv file in the root directory.
-    
-    The dataset must include financial columns like Revenue, Net Income, etc.
-    
-    Run the notebook
-    
-    Open AI-Driven Portfolio Optimization Using Reinforcement Learning.ipynb in Google Colab or Jupyter.
-
-📥 Input
-
-    CSV file with historical financial data for multiple stocks (Portfolio_management.csv)
-    
-    Required columns include: Revenue, Ticker, Report Date, etc.
-    
-    User-provided current portfolio allocations (as percentages)
-
-📤 Output
-
-    🤖 Trained RL models (PPO, DDPG, A2C)
-    
-    📉 Performance curves of each RL agent
-    
-    🎯 Portfolio advice with similarity rating (out of 10)
-    
-    📌 Suggestions on which stock allocations to increase or reduce
-
-📚 About the Author
-
-    👨‍🎓 Om Mishra
-    📍 Third-year Student, Chandigarh University
-    🏆 Reliance Foundation Scholar
-    🧠 Mentor at Reliance Foundation (C, C++, DSA, Python)
-    🌐 Blockchain & AI Enthusiast (Solidity, Ethereum, React, ML)
-    🎮 Hackathon Finalist (NASA Space App Challenge, NITs, BITS)
-    📢 Rebuilt math curriculum at an ed-tech startup
-    🧑‍🏫 Taught merchant navy aspirants
-
-🔗 [Connect on LinkedIn](https://www.linkedin.com/in/om-mishra-a62991289)
-
-✨ Acknowledgements
-
-    🧠 Stable Baselines3
-    
-    📊 scikit-learn for scaling
-    
-    📚 OpenAI Gym for RL environment structure
-    
-    🧪 Google Colab for notebook execution
-
-📜 License
-This project is open-source and available under the MIT License.
-
-📧 Contact
-For feedback or collaboration: ommishra1729@gmail.com
+The system evaluates whether RL-driven strategies can **outperform static or heuristic-based allocations** under simulated market conditions.
 
 ---
 
-Let me know if you'd like this in a downloadable `.md` format or want help generating a `requirements.txt` based on this code.
+## 🧠 System Design & Methodology
+
+### 1️⃣ Financial Feature Engineering
+- Revenue growth and financial ratios
+- Volatility and momentum indicators
+- Risk-adjusted performance metrics (e.g., Sharpe-inspired features)
+
+These features serve as the **state space** for the RL environment.
+
+---
+
+### 2️⃣ Custom Portfolio Environment
+A custom OpenAI Gym–compatible environment models:
+- Multi-asset portfolio allocation decisions
+- Portfolio weight constraints
+- Reward signals based on performance and risk
+
+This mirrors how portfolio simulations are structured in real-world research settings.
+
+---
+
+### 3️⃣ Reinforcement Learning Agents
+The following agents are evaluated for policy learning and stability:
+
+- **PPO (Proximal Policy Optimization)** – stable, policy-gradient based
+- **DDPG (Deep Deterministic Policy Gradient)** – continuous action space handling
+- **A2C (Advantage Actor Critic)** – baseline actor–critic comparison
+
+Agents are trained and compared across multiple episodes to evaluate convergence and reward consistency.
+
+---
+
+### 4️⃣ Portfolio Advisory Layer
+Beyond optimization, the system:
+- Compares user-defined portfolio weights with RL-suggested allocations
+- Computes similarity scores
+- Generates **actionable rebalancing suggestions**
+
+This layer bridges **model output and business usability**.
+
+---
+
+## 📁 Repository Structure
+
+```
+AI-Driven-Portfolio-Optimization-Using-Reinforcement-Learning/
+│
+├── Portfolio_management.csv
+├── AI-Driven Portfolio Optimization Using Reinforcement Learning.ipynb
+├── analysis.html
+├── README.md
+└── requirements.txt
+```
 
 
+---
+
+## 🛠 Technology Stack
+
+| Layer | Tools |
+|-----|------|
+| Reinforcement Learning | PPO, DDPG, A2C (Stable-Baselines3) |
+| Environment | OpenAI Gym (Custom PortfolioEnv) |
+| Data & Features | pandas, numpy, scikit-learn |
+| Visualization | matplotlib |
+| Execution | Jupyter / Google Colab |
+
+---
+
+## 📥 Inputs
+
+- Historical financial dataset (`Portfolio_management.csv`)
+- Asset-level financial metrics (e.g., revenue, volatility)
+- User-defined portfolio allocations (percentage-based)
+
+---
+
+## 📤 Outputs
+
+- Trained RL policies for portfolio allocation
+- Reward and performance curves per agent
+- Recommended portfolio weights
+- Similarity-based portfolio improvement suggestions
+
+---
+
+## 📊 Evaluation Criteria
+
+- Reward convergence and stability
+- Portfolio risk–return balance
+- Comparative agent performance
+- Practical interpretability of recommendations
+
+> This project prioritizes **model behavior and explainability** over raw profit maximization.
+
+---
+
+## 🧩 Business Relevance
+
+This project reflects workflows used in:
+- Quantitative research teams
+- Fintech investment platforms
+- Portfolio analytics and advisory systems
+- Applied ML experimentation in finance
+
+It demonstrates the ability to:
+- Translate financial problems into RL formulations
+- Design controlled simulation environments
+- Evaluate model performance beyond accuracy metrics
+- Align technical outputs with investment decision logic
+
+---
+
+## 👤 Author
+
+**Om Mishra**  
+Applied Data Science | Machine Learning 
+🔗 LinkedIn: https://www.linkedin.com/in/om-mishra-a62991289  
+📧 Email: ommishra1729@gmail.com  
+
+---
+
+## 📜 License
+
+This project is released under the **MIT License**.
+
+---
+
+## ⭐ Final Note
+
+This repository is structured as a **research-oriented, portfolio-grade project**.  
+It focuses on **methodology, evaluation, and interpretability**, aligning with real-world analytics and ML use cases in finance.
+
+Ideal for roles in **Data Science, Quantitative Analytics, and Fintech ML**.
